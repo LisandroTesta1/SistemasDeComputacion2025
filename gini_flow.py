@@ -1,4 +1,3 @@
-# archivo: gini_flow.py
 import requests
 import json
 import subprocess
@@ -49,7 +48,7 @@ def read_modified_date(filename=JSON_MODIFIED):
     return data.get("date", None)
 
 def reiniciar():
-    print(f"\n🔄 Reiniciando desde el año {START_YEAR}...")
+    print(f"\n Reiniciando desde el año {START_YEAR}...")
     return fetch_gini(START_YEAR)
 
 if __name__ == "__main__":
@@ -71,7 +70,7 @@ if __name__ == "__main__":
 
             elif user_input == "siguiente":
                 if current_data["date"] >= MAX_YEAR:
-                    print(f"\n⚠️ Ya alcanzaste el año límite ({MAX_YEAR}).")
+                    print(f"\n Ya alcanzaste el año límite ({MAX_YEAR}).")
                     next_action = input('Escribe "reiniciar" para volver a 2006 o "salir" para terminar: ').strip().lower()
                     if next_action == "reiniciar":
                         current_data = reiniciar()
