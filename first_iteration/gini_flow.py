@@ -1,13 +1,27 @@
+## @file gini_flow_it_2.py
+#  @brief Consulta y gestión interactiva del índice de Gini de Argentina (2006–2020) usando la API del Banco Mundial.
+#  @details Este script en Python obtiene el índice de Gini para Argentina, guarda el resultado en un archivo JSON,
+#           y permite avanzar año por año (hasta 2020) llamando a un programa en C que modifica el valor del año.
+
 import requests
 import json
 import subprocess
 import os
 
+## Año inicial de consulta
 START_YEAR = 2006
+## Año máximo permitido
 MAX_YEAR = 2020
+## Nombre del archivo original JSON
 JSON_ORIGINAL = "gdp_data.json"
+## Nombre del archivo JSON modificado por el programa en C
 JSON_MODIFIED = "gdp_data_modified.json"
 
+##
+# @brief Obtiene datos del índice de Gini desde la API del Banco Mundial.
+# @param year Año para el cual se desea consultar el índice de Gini.
+# @param filename Nombre del archivo JSON donde se guardarán los datos.
+# @return Diccionario con los datos del índice de Gini o None si no se encontraron datos válidos.
 def fetch_gini(year, filename=JSON_ORIGINAL):
     url = f"https://api.worldbank.org/v2/country/ar/indicator/SI.POV.GINI?date={year}&format=json"
     response = requests.get(url)
@@ -31,14 +45,23 @@ def fetch_gini(year, filename=JSON_ORIGINAL):
         print(f"No se encontraron datos válidos para el año {year}.")
         return None
 
+##
+# @brief Imprime los datos del índice de Gini en formato legible.
+# @param gini_data Diccionario con los datos del índice Gini.
 def print_gini_info(gini_data):
     print("\n--- Datos del Índice de Gini ---")
     print(json.dumps(gini_data, indent=4, ensure_ascii=False))
 
+##
+# @brief Llama al programa en C encargado de modificar el archivo JSON e incrementar el año.
 def call_c_modifier():
     print("\n→ Ejecutando programa en C para incrementar el año...")
     subprocess.run(["./modify_json"])
 
+##
+# @brief Lee el archivo JSON modificado y obtiene el nuevo valor del campo "date".
+# @param filename Nombre del archivo modificado.
+# @return Año (entero) leído desde el archivo o None si no se encuentra.
 def read_modified_date(filename=JSON_MODIFIED):
     if not os.path.exists(filename):
         print("Archivo modificado no encontrado.")
@@ -47,11 +70,17 @@ def read_modified_date(filename=JSON_MODIFIED):
         data = json.load(f)
     return data.get("date", None)
 
+##
+# @brief Reinicia el proceso desde el año 2006.
+# @return Diccionario con los datos del índice Gini del año inicial.
 def reiniciar():
     print(f"\n Reiniciando desde el año {START_YEAR}...")
     return fetch_gini(START_YEAR)
 
+##
+# @brief Función principal del programa. Maneja el flujo de ejecución y la interacción con el usuario.
 if __name__ == "__main__":
+    
     current_data = fetch_gini(START_YEAR)
     if current_data:
         print_gini_info(current_data)
