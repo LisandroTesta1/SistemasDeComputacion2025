@@ -12,6 +12,7 @@ Utilizando la API del Banco Mundial para obtener información sobre el índice G
 Comandos para consola necesarios:
 
 - Primera iteración
+
 Compilar:
 	gcc modify_json.c -o modify_json -ljansson
 
@@ -19,6 +20,7 @@ Ejecutar:
 	python3 gini_flow.py
 
 - Segunda iteración
+
 Compilar:
 	nasm -f elf32 -g -F dwarf increment_date.asm -o increment_date.o
 
