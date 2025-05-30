@@ -1,0 +1,1 @@
+savedcmd_/home/lisandro-testa/Escritorio/LisandroTesta/tps/tp4/Kernel_Module_Lisandro/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/lisandro-testa/Escritorio/LisandroTesta/tps/tp4/Kernel_Module_Lisandro/Module.symvers -T /home/lisandro-testa/Escritorio/LisandroTesta/tps/tp4/Kernel_Module_Lisandro/modules.order -i Module.symvers -e 
