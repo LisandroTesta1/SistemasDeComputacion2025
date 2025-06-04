@@ -1,0 +1,1 @@
+savedcmd_/home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesDrv4/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesDrv4/Module.symvers -T /home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesDrv4/modules.order -i Module.symvers -e 

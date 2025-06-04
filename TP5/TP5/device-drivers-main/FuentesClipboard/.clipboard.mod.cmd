@@ -1,0 +1,1 @@
+savedcmd_/home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesClipboard/clipboard.mod := printf '%s\n'   clipboard.o | awk '!x[$$0]++ { print("/home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesClipboard/"$$0) }' > /home/lisandro-testa/Escritorio/LisandroTesta/tps/tp5/device-drivers-main/FuentesClipboard/clipboard.mod
