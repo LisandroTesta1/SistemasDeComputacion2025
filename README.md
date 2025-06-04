@@ -1,1 +1,0 @@
-# SistemasDeComputacion2025
