@@ -1,6 +1,7 @@
 # SistemasDeComputacion2025
 
 - Trabajo Practico #1: Rendimiento
+
 El objetivo de esta tarea es poner en práctica los conocimientos sobre performance y rendimiento de los computadores. El trabajo consta de dos partes, la primera es utilizar benchmarks de terceros para tomar decisiones de hardware y la segunda consiste en utilizar herramientas para medir la performance de nuestro código.
 
 - Trabajo Practico #2: Stack Frame
